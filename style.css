@@ -1,0 +1,82 @@
+/* This ensures it doesn't look like Times New Roman */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f9fbf9;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    background: #e6efe9;
+    padding: 20px;
+    border-bottom: 2px solid #d4e2d8;
+}
+
+.logo { width: 80px; margin-bottom: 10px; }
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #4a6741;
+    font-weight: bold;
+}
+
+.hero img { width: 100%; max-height: 300px; object-fit: cover; }
+
+.cart-box {
+    background: white;
+    padding: 15px;
+    border: 2px solid #4a6741;
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 250px;
+}
+
+.product-card img { width: 150px; border-radius: 10px; }
+
+.btn, button {
+    background: #4a6741;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form-box input, .form-box textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.checkout-container { max-width: 500px; margin: auto; padding: 20px; }

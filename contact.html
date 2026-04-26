@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ALORA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" class="logo" alt="ALORA Logo">
+        <h1>Finalize Your Order</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Checkout</a>
+        </nav>
+    </header>
+
+    <section class="checkout-container" style="max-width: 500px; margin: auto; padding: 20px; text-align: center;">
+        <div class="order-summary" style="background: white; padding: 20px; border-radius: 10px; border: 1px solid #ddd; margin-bottom: 20px;">
+            <h3>Order Summary</h3>
+            <p>Total Items: <span id="final-count">0</span></p>
+            <p><strong>Grand Total: PKR <span id="final-price">0</span></strong></p>
+        </div>
+
+        <div class="form-box">
+            <input id="name" placeholder="Full Name" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;">
+            <input id="phone" placeholder="WhatsApp Number" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;">
+            <textarea id="address" placeholder="Delivery Address" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; height: 100px;"></textarea>
+            
+            <button onclick="sendWhatsApp()" style="width: 100%; padding: 15px; background: #25D366; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 16px;">
+                Place Order via WhatsApp
+            </button>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">99% natural aloe vera gel. Simply radiant.</p>
+    </section>
+
+    <script>
+        // Pulls the cart data you saved on the Shop page
+        window.onload = function() {
+            document.getElementById('final-price').innerText = localStorage.getItem('cartTotal') || 0;
+            document.getElementById('final-count').innerText = localStorage.getItem('cartCount') || 0;
+        };
+
+        function sendWhatsApp() {
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let address = document.getElementById("address").value;
+            let total = localStorage.getItem('cartTotal') || 0;
+
+            if(!name || !address) {
+                alert("Please fill in your name and address.");
+                return;
+            }
+
+            // The message that will appear in your WhatsApp chat
+            let message = `*New Order from ALORA Website*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A*Total Amount:* PKR ${total}%0A%0A_99%25 Natural Aloe Vera Gel_`;
+            
+            // Your specific number: 923212114989
+            window.open("https://wa.me/923212114989?text=" + message);
+        }
+    </script>
+</body>
+</html>

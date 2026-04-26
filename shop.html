@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Alora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+    <style>
+        :root { --aloe-green: #79a379; --soft-white: #f9fdf9; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--soft-white); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: white; }
+        .logo img { height: 50px; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { text-decoration: none; color: #333; }
+        .search-container { text-align: center; padding: 40px 20px; }
+        #productSearch { width: 80%; max-width: 400px; padding: 12px 25px; border: 1px solid #ddd; border-radius: 25px; outline: none; font-size: 1rem; }
+        #productSearch:focus { border-color: var(--aloe-green); }
+        .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 5% 50px; }
+        .product-card { background: white; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .product-card img { width: 100%; border-radius: 10px; }
+        .price { color: var(--aloe-green); font-weight: 600; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="logo.png" alt="Alora"></div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="search-container">
+        <input type="text" id="productSearch" onkeyup="filterProducts()" placeholder="Search our gels...">
+    </div>
+    <div class="shop-grid" id="productGrid">
+        <div class="product-card">
+            <img src="jar.png" alt="Aloe Vera Gel">
+            <h3>Alora Aloe Vera Gel</h3>
+            <p>99% Pure Hydration</p>
+            <p class="price">$15.00</p>
+        </div>
+        <div class="product-card">
+            <img src="bundle.png" alt="Bundle Deal">
+            <h3>The Glow Bundle</h3>
+            <p>Buy 2 Get 1 Free!</p>
+            <p class="price">$30.00</p>
+        </div>
+    </div>
+    <script>
+        function filterProducts() {
+            let filter = document.getElementById('productSearch').value.toLowerCase();
+            let cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                card.style.display = text.includes(filter) ? "" : "none";
+            });
+        }
+    </script>
+</body>
+</html>
